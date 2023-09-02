@@ -18,6 +18,7 @@
  * limitations under the License.
  */
 import Processor, { MessageRequest, Response } from "@routr/processor";
+import { Method } from "@routr/common";
 import { getLogger } from "@fonoster/logger";
 import { LocationClient } from "@routr/location";
 import { registerHandler, messageHandler } from "./handlers";
@@ -33,15 +34,14 @@ const logger = getLogger({
 new Processor({ bindAddr: BIND_ADDR, name: "instant-messaging" }).listen(
   async (req: MessageRequest, res: Response) => {
     try {
-      const method = req.method.toString();
-
-      if (method === "REGISTER") {
-        return registerHandler(locationClient, req, res);
-      } else if (method === "MESSAGE") {
-        return messageHandler(locationClient, req, res);
+      switch (req.method.toString()) {
+        case Method.REGISTER:
+          return registerHandler(locationClient, req, res);
+        case Method.MESSAGE:
+          return messageHandler(locationClient, req, res);
+        default:
+          res.sendNotImplemented();
       }
-
-      res.sendNotImplemented();
     } catch (err) {
       logger.error("An error occurred:", { error: err.message });
       res.sendInternalServerError();
