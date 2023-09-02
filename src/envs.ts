@@ -16,9 +16,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Assertions as A } from "@routr/common"
+import { Assertions as A } from "@routr/common";
 
-A.assertEnvsAreSet(["LOCATION_ADDR"])
+A.assertEnvsAreSet(["LOCATION_ADDR"]);
 
-export const BIND_ADDR = process.env.BIND_ADDR ?? "0.0.0.0:51904"
-export const LOCATION_ADDR = process.env.LOCATION_ADDR
+export const BIND_ADDR = process.env.BIND_ADDR ?? "0.0.0.0:51904";
+export const LOCATION_ADDR = process.env.LOCATION_ADDR;
