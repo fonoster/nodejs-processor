@@ -10,7 +10,7 @@
 tasks:
   - name: Setup & start
     init: npm install
-    command: LOCATION_ADDR=FIXME npm start
+    command: LOCATION_ADDR=FIXME LOGS_LEVEL=verbose npm start
 
 ports:
   - port: 51904
