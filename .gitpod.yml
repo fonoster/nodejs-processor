@@ -10,12 +10,12 @@
 tasks:
   - name: Setup & start
     init: npm install
-    command: npm start
+    command: LOCATION_ADDR=FIXME npm start
 
 ports:
-  - port: 3000
+  - port: 51904
     visibility: public
-    onOpen: notify
+    onOpen: ignore
 
 github:
   prebuilds:
