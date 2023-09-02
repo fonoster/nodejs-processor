@@ -1,8 +1,9 @@
+#!/usr/bin/env node
 /*
  * Copyright (C) 2023 by Fonoster Inc (https://fonoster.com)
  * http://github.com/fonoster
  *
- * This file is part of nodejs-service
+ * This file is part of nodejs-processor
  *
  * Licensed under the MIT License (the "License");
  * you may not use this file except in compliance with
@@ -16,23 +17,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import express, { Express, Request, Response } from "express";
-import logger from "@fonoster/logger";
+import Processor, { MessageRequest, Response } from "@routr/processor";
+import { getLogger } from "@fonoster/logger";
+import { LocationClient } from "@routr/location";
+import { registerHandler, messageHandler } from "./handlers";
+import { BIND_ADDR, LOCATION_ADDR } from "./envs";
 
-/**
- * This is the entry point for the service. It will be called by
- * the service runner.
- *
- * @param {number} port - The port the service will listen on.
- */
-export default function start(port: number | string = 3000): void {
-  const app: Express = express();
+const locationClient = new LocationClient({ addr: LOCATION_ADDR });
 
-  app.get("/", (req: Request, res: Response) => {
-    res.send("Express + TypeScript Server");
-  });
+const logger = getLogger({
+  service: "instant-messaging",
+  filePath: __filename
+});
 
-  app.listen(port, () => {
-    logger.info(`⚡️[server]: Server is running at https://localhost:${port}`);
-  });
-}
+new Processor({ bindAddr: BIND_ADDR, name: "instant-messaging" }).listen(
+  async (req: MessageRequest, res: Response) => {
+    try {
+      const method = req.method.toString();
+
+      if (method === "REGISTER") {
+        return registerHandler(locationClient, req, res);
+      } else if (method === "MESSAGE") {
+        return messageHandler(locationClient, req, res);
+      }
+
+      res.sendNotImplemented();
+    } catch (err) {
+      logger.error("An error occurred:", { error: err.message });
+      res.sendInternalServerError();
+    }
+  }
+);

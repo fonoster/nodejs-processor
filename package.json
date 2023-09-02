@@ -1,24 +1,26 @@
 {
-  "name": "nodejs-service",
+  "name": "nodejs-processor",
   "version": "0.2.0",
-  "description": "Nodejs Service Template",
+  "description": "Routr Processor Template",
   "main": "dist/src/index.js",
-  "homepage": "https://github.com/fonoster/nodejs-service#readme",
+  "homepage": "https://github.com/fonoster/nodejs-processor#readme",
   "author": "Fonoster Inc.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fonoster/nodejs-service/issues"
+    "url": "https://github.com/fonoster/nodejs-processor/issues"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=dev nodemon src/runner.ts",
-    "start:prod": "cross-env NODE_ENV=prod nodemon dist/bundle.js",
+    "start": "cross-env NODE_ENV=dev nodemon src/index.ts",
     "test": "cross-env NODE_ENV=dev nyc --reporter=lcov mocha test/*.test.ts --exit",
     "prebuild": "rimraf ./dist tsconfig.tsbuildinfo",
-    "build": "webpack --config webpack.config.js",
+    "build": "tsc -b tsconfig.json",
     "lint": "eslint src --ext .ts --fix",
     "format": "prettier --write src",
     "gen:docs": "node .scripts/docs-generator.js && cp docs/service.md",
     "prepare": "husky install"
+  },
+  "bin": {
+    "runner": "./dist/src/index.js"
   },
   "nodemonConfig": {
     "watch": [
@@ -30,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fonoster/nodejs-service.git"
+    "url": "git+https://github.com/fonoster/nodejs-processor.git"
   },
   "keywords": [
     "template"
@@ -46,8 +48,10 @@
     "access": "public"
   },
   "dependencies": {
-    "@fonoster/logger": "^0.3.6",
-    "express": "^4.18.1"
+    "@fonoster/logger": "^0.3.24",
+    "@routr/location": "^2.1.7",
+    "@routr/processor": "^2.1.7",
+    "fp-ts": "^2.16.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
@@ -79,7 +83,6 @@
     "sinon-chai": "^3.5.0",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.7.0",
-    "typescript": "^4.1.5",
-    "webpack-cli": "^5.0.1"
+    "typescript": "^4.1.5"
   }
 }

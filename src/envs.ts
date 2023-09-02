@@ -1,9 +1,8 @@
-#!/usr/bin/env node
 /*
  * Copyright (C) 2023 by Fonoster Inc (https://fonoster.com)
  * http://github.com/fonoster
  *
- * This file is part of nodejs-service
+ * This file is part of nodejs-processor
  *
  * Licensed under the MIT License (the "License");
  * you may not use this file except in compliance with
@@ -17,6 +16,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import start from "./index";
+import { Assertions as A } from "@routr/common"
 
-start(process.env.PORT);
+A.assertEnvsAreSet(["LOCATION_ADDR"])
+
+export const BIND_ADDR = process.env.BIND_ADDR ?? "0.0.0.0:51904"
+export const LOCATION_ADDR = process.env.LOCATION_ADDR

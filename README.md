@@ -1,14 +1,14 @@
-# Fonoster {Service Name}
+# Routr {Proccessor Name}
 
 > {A short description of the image, same as the Github Repo description.}
 
 {Badges should all be in one row without carriage returns. Replace the {name} with your docker image name.}
 
-<a href="https://gitpod.io/#https://github.com/fonoster/nodejs-service"> <img src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod" alt="Contribute with Gitpod" /> </a> [![publish to docker hub](https://github.com/fonoster/nodejs-service/actions/workflows/gh_docker.yml/badge.svg)](https://github.com/fonoster/nodejs-service/actions/workflows/gh_docker.yml)
+<a href="https://gitpod.io/#https://github.com/fonoster/ "> <img src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod" alt="Contribute with Gitpod" /> </a> [![publish to docker hub](https://github.com/fonoster/nodejs-processor/actions/workflows/gh_docker.yml/badge.svg)](https://github.com/fonoster/nodejs-processor/actions/workflows/gh_docker.yml)
 
 {Longer description of what the image provides.}
 
-Please read the [documentation](link) on how Fonoster services are created and how to work with them.
+Please read the [documentation]() on how Fonoster services are created and how to work with them.
 
 ## Available Versions
 
@@ -21,14 +21,14 @@ You can see all images available to pull from Docker Hub via the [Tags]() page. 
 You can clone this repository and manually build it.
 
 ```
-cd fonoster/{service}\:%%VERSION%%
-docker build -t fonoster/{service}:%%VERSION%% .
+cd fonoster/routr-{processor}\:%%VERSION%%
+docker build -t fonoster/routr-{processor}:%%VERSION%% .
 ```
 
 Otherwise, you can pull this image from the docker index.
 
 ```
-docker pull fonoster/{service}:%%VERSION%%
+docker pull fonoster/routr-{processor}:%%VERSION%%
 ```
 
 ## Usage Example
@@ -65,7 +65,7 @@ Environment variables are used in the entry point script to render configuration
 
 ## Exposed ports
 
-- `3000` - Default application port for HTTP
+- `51904` - Default Processor port
 
 ## Volumes
 
@@ -85,7 +85,7 @@ Please read [CONTRIBUTING.md](https://github.com/fonoster/fonoster/blob/master/C
 
 - [Pedro Sanders](https://github.com/psanders)
 
-See the List of contributors who [participated](https://github.com/fonoster/nodejs-service/contributors) in this project.
+See the List of contributors who [participated](https://github.com/fonoster/nodejs-processor/contributors) in this project.
 
 ## License
 
