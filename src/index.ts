@@ -28,7 +28,7 @@ const locationClient = new LocationClient({ addr: LOCATION_ADDR });
 
 const logger = getLogger({
   service: "instant-messaging",
-  filePath: __filename
+  filePath: module.filename
 });
 
 new Processor({ bindAddr: BIND_ADDR, name: "instant-messaging" }).listen(
