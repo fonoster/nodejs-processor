@@ -89,4 +89,4 @@ See the List of contributors who [participated](https://github.com/fonoster/node
 
 ## License
 
-Copyright (C) 2023 by Fonoster Inc. MIT License (see [LICENSE](https://github.com/fonoster/fonoster/blob/master/LICENSE) for details).
+Copyright (C) 2024 by Fonoster Inc. MIT License (see [LICENSE](https://github.com/fonoster/fonoster/blob/master/LICENSE) for details).
