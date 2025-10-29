@@ -16,5 +16,5 @@ top of things.
 
 # Additional Resources
 
-* [General GitHub documentation](http://help.github.com/)
-* [GitHub pull request documentation](http://help.github.com/send-pull-requests/)
+* [General GitHub documentation](https://docs.github.com/)
+* [GitHub pull request documentation](https://docs.github.com/en/pull-requests)

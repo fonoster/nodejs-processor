@@ -39,7 +39,8 @@ export const registerHandler = async (
 ) => {
   await locationClient.addRoute({
     aor: Target.getTargetAOR(req),
-    route: LocationHelper.createRoute(req)
+    route: LocationHelper.createRoute(req),
+    maxContacts: 1
   });
   res.sendOk();
 };

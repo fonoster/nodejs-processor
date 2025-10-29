@@ -33,7 +33,7 @@ docker pull fonoster/routr-{processor}:%%VERSION%%
 
 ## Usage Example
 
-{An example of running the container. Most Fonoster services use docker-compose, and docker run is also beneficial.}
+{An example of running the container. Most Routr services use docker compose, and docker run is also beneficial.}
 
 The following is a basic example of using this image.
 
@@ -56,7 +56,7 @@ Optional specification notes.
 
 ## Environment Variables
 
-Environment variables are used in the entry point script to render configuration templates. You can specify the values of these variables during `docker run`, `docker-compose up`, or in Kubernetes manifests in the `env` array.
+Environment variables are used in the entry point script to render configuration templates. You can specify the values of these variables during `docker run`, `docker compose up`, or in Kubernetes manifests in the `env` array.
 
 {Each environment variable might have 1-2 sentences of description. For anything longer, we should probably have a sub-section within Specs to elaborate.}
 
@@ -79,7 +79,7 @@ Environment variables are used in the entry point script to render configuration
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/fonoster/fonoster/blob/master/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/fonoster/nodejs-processor/blob/main/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests to us.
 
 ## Authors
 
@@ -89,4 +89,4 @@ See the List of contributors who [participated](https://github.com/fonoster/node
 
 ## License
 
-Copyright (C) 2024 by Fonoster Inc. MIT License (see [LICENSE](https://github.com/fonoster/fonoster/blob/master/LICENSE) for details).
+Copyright (C) 2025 by Fonoster Inc. MIT License (see [LICENSE](https://github.com/fonoster/nodejs-processor/blob/main/LICENSE) for details).
